@@ -136,17 +136,6 @@ bool cardsPrintsTest()
     return true;
 }
 
-bool playersPrintsTest()
-{
-    
-    Rogue player1("Itay");
-    Fighter player2("Efrat");
-    Wizard player3("Jimmy");
-    cout << player1 << std::endl << player2 << std::endl << player3   
-                    << std::endl;
-    return true;
-}
-
 bool testCard()
 {
     vector<unique_ptr<Card>> cards;
@@ -168,8 +157,9 @@ bool testCard()
 /* ---------------------------------------------------------------------------------------------- */
 // --------------------------------       Tests for Mtmchkin class          ------------------------------
 
-bool gameRunTest(){
-//   init cin from file
+bool gameRunTest()
+{
+    //   init cin from file
     std::ifstream in("in.txt");
     if(!in.is_open()){
         throw std::exception();
@@ -240,7 +230,7 @@ bool allTenTest()
 bool badPlayerInputTest()
 {
     const string tmp_file("badPlayerInput_test");
-    string input("2\nmatamDalf Wizardd \nmatamDalf rogoe\n matamDalf Wizard\nrocky Fighter");
+    string input("2\nmatamDalf Wizardd\nmatamDalf rogoe\nmatamDalf Wizard\nrocky Fighter");
     string deck("Goblin\nVampire\nGoblin\nGoblin\nDragon");
     string expectedOutputFilename("tests/badPlayerInput_test_expected.txt");
     return GeneralGameSimulationTest(tmp_file, input, deck, expectedOutputFilename);
@@ -249,7 +239,7 @@ bool badPlayerInputTest()
 bool merchantInputTest()
 {
     const string tmp_file("merchantInput_test");
-    string input("2\nmatamDalf Wizardd \nmatamDalf rogoe\n matamDalf Wizard\nrocky Fighter\n"
+    string input("2\nmatamDalf Wizardd\nmatamDalf rogoe\nmatamDalf Wizard\nrocky Fighter\n"
                  "1\n"
                  "1\n"
                  "0\n"
@@ -266,7 +256,7 @@ bool merchantInputTest()
 bool badSizeTest()
 {
     const string tmp_file("badSize_test");
-    string input("4\nBarbieGirl Wizard\nInABarbieWorld Rogue\n MadeOfPlastic Rogue\nITSFANTASTIC Wizard");
+    string input("4\nBarbieGirl Wizard\nInABarbieWorld Rogue\nMadeOfPlastic Rogue\nITSFANTASTIC Wizard");
     string deck("Fairy");
     string expectedOutputFilename("notneeded.txt");
 	bool flag= false;
@@ -304,7 +294,6 @@ bool badFormatTest()
     bool flag = false;
     try {
         Mtmchkin("inputs/badFormat_test.txt");
-//        GeneralGameSimulationTest(tmp_file, input, deck, expectedOutputFilename);
     }
     catch(const DeckFileFormatError& e){
         if(strcmp(e.what(),"Deck File Error: File format error in line 2")==0) {
@@ -322,7 +311,7 @@ bool badFormatStartTest()
     string expectedOutputFilename("notneeded.txt");
     bool flag = false;
     try {
-        Mtmchkin("badFormat_test_start_of_file.txt");
+        Mtmchkin("inputs/badFormat_test_start_of_file.txt");
     }
     catch(const DeckFileFormatError& e){
         if(strcmp(e.what(),"Deck File Error: File format error in line 1")==0)
@@ -339,7 +328,6 @@ bool badFormatStartTest()
 int main(){
     
 	run_test(cardsPrintsTest,"cardsPrintsTest");
-	run_test(playersPrintsTest,"playersPrintsTest");
 	run_test(testCard,"Deck creation test");
 	run_test(dragonDenTest,"Dragon Den simulation test");
 	run_test(goblinCaveTest,"Goblin Cave simulation test");
