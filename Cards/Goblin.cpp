@@ -10,11 +10,19 @@ Goblin::Goblin() : BattleCard::BattleCard("Goblin",GOBLIN_FORCE,GOBLIN_DAMAGE,GO
 //-----------------------------------------------------------
 void Goblin::applyEncounter(Player& player) const
 {
-    //NEEDS IMPLEMENTATION
+    if(player.getAttackStrength() < m_force){
+        printLossBattle(player.getName(),m_name);
+        player.damage(m_force);
+    }
+    else{
+        printWinBattle(player.getName(),m_name);
+        player.addCoins(m_loot);
+        player.levelUp();
+    }
 }
 //-----------------------------------------------------------
-void Goblin::printInfo() const //NEEDS FIXING, NEED TO FIGURE OUT WHAT OS TO SEND
+void Goblin::printInfo() const
 {
-    printCardDetails();
-    printEndOfCardDetails();
+    printMonsterDetails(std::cout,GOBLIN_FORCE,GOBLIN_DAMAGE,GOBLIN_LOOT, false);
+    printEndOfCardDetails(std::cout);
 }

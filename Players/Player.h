@@ -3,8 +3,7 @@
 
 
 #include <string>
-#include <iostream>
-#include "../utilities.h"
+
 using namespace std;
 
 #define STARTING_FORCE 5
@@ -123,7 +122,21 @@ public:
     */
     virtual int getAttackStrength() const;
 
+    /*
+     * Getters:
+     *      Player name
+     *      Player job
+     *      Player force
+     *      Player Hp
+     * Setters:
+     *      Player force
+     */
+    const string& getName() const;
+    const string& getJob() const;
 
+    int getHp() const;
+    int getForce() const;
+    void setForce(int force);
     /*
      * Here we are explicitly telling the compiler to use the default methods
     */

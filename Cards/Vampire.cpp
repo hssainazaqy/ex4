@@ -10,11 +10,20 @@ Vampire::Vampire() : BattleCard::BattleCard("Vampire",VAMPIRE_FORCE,VAMPIRE_DAMA
 //-----------------------------------------------------------
 void Vampire::applyEncounter(Player& player) const
 {
-
+    if(player.getAttackStrength() < m_force){
+        printLossBattle(player.getName(),m_name);
+        player.damage(m_force);
+        player.setForce(player.getForce()-1);
+    }
+    else{
+        printWinBattle(player.getName(),m_name);
+        player.addCoins(m_loot);
+        player.levelUp();
+    }
 }
 //-----------------------------------------------------------
-void Vampire::printInfo() const //NEEDS FIXING, NEED TO FIGURE OUT WHAT OS TO SEND
+void Vampire::printInfo() const
 {
-    printCardDetails();
-    printEndOfCardDetails();
+    printMonsterDetails(std::cout,VAMPIRE_FORCE,VAMPIRE_DAMAGE,VAMPIRE_LOOT, false);
+    printEndOfCardDetails(std::cout);
 }

@@ -1,6 +1,6 @@
 #include "Player.h"
 #include <iostream>
-
+#include "../utilities.h"
 
 Player::Player(const string name, const string job):
             m_name(name), m_job(job), m_level(STARTING_LEVEL), m_force(STARTING_FORCE),
@@ -76,4 +76,29 @@ bool Player::pay(int coins_remove){
 //--------------------------------------------------------------------------
 int Player::getAttackStrength() const{
     return (m_level + m_force);
+}
+//--------------------------------------------------------------------------
+const string& Player::getName() const{
+   return m_name;
+}
+//--------------------------------------------------------------------------
+const string& Player::getJob() const {
+    return m_job;
+}
+//--------------------------------------------------------------------------
+int Player::getForce() const{
+    return m_force;
+}
+//--------------------------------------------------------------------------
+void Player::setForce(int force){
+    if(force >=0){
+        m_force = force;
+    }
+    else{
+        m_force = 0;
+    }
+}
+//--------------------------------------------------------------------------
+int Player::getHp() const{
+    return m_hp;
 }
