@@ -1,17 +1,21 @@
 #include "Barfight.h"
 
+#define BARFIGHT_DAMAGE 10
 //-----------------------------------------------------------
-Barfight::Barfight(std::string name) : SpecialCard::SpecialCard(name)
+Barfight::Barfight() : SpecialCard::SpecialCard("BarFight")
 {
 }
 //-----------------------------------------------------------
 void Barfight::applyEncounter(Player& player) const
 {
-    //NEEDS IMPLEMENTATION
+    bool isFighter = false;
+    if(player.getJob().compare("Fighter") == 0){
+        isFighter = true;
+    }
+
+    if(!isFighter){
+        player.damage(BARFIGHT_DAMAGE);
+    }
+    printBarfightMessage(isFighter);
 }
 //-----------------------------------------------------------
-void Barfight::printInfo() const //NEEDS FIXING, NEED TO FIGURE OUT WHAT OS TO SEND
-{
-    printCardDetails();
-    printEndOfCardDetails();
-}

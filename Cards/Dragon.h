@@ -6,11 +6,13 @@
 #include <iostream>
 
 class Dragon : public BattleCard {
-    Dragon();
+
     //-------------------------Methods---------------------------
     void applyEncounter(Player& player) const override;
-    void printInfo() const override;
+    void printInfo(ostream& os) const override;
     //-----------------------------------------------------------
+public:
+    Dragon();
 };
 
 #endif

@@ -6,10 +6,10 @@
 #include <iostream>
 
 class Vampire : public BattleCard {
+public:
     Vampire();
     //-------------------------Methods---------------------------
     void applyEncounter(Player& player) const override;
-    void printInfo() const override;
     //-----------------------------------------------------------
 };
 

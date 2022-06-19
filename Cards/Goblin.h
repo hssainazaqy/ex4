@@ -6,10 +6,10 @@
 #include <iostream>
 
 class Goblin : public BattleCard {
+public:
     Goblin();
     //-------------------------Methods---------------------------
     void applyEncounter(Player& player) const override;
-    void printInfo() const override;
     //-----------------------------------------------------------
 };
 

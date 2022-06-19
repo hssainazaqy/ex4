@@ -1,17 +1,22 @@
 #include "Pitfall.h"
 
+#define PITFALL_DAMAGE 10
 //-----------------------------------------------------------
-Pitfall::Pitfall(std::string name) : SpecialCard::SpecialCard(name)
+Pitfall::Pitfall() : SpecialCard::SpecialCard("Pitfall")
 {
 }
 //-----------------------------------------------------------
 void Pitfall::applyEncounter(Player& player) const
 {
-    //NEEDS IMPLEMENTATION
+    bool isRogue = false;
+    if(player.getJob().compare("Rogue") == 0){
+        isRogue = true;
+    }
+
+    if(!isRogue){
+        player.damage(PITFALL_DAMAGE);
+    }
+    printPitfallMessage(isRogue);
 }
 //-----------------------------------------------------------
-void Pitfall::printInfo() const //NEEDS FIXING, NEED TO FIGURE OUT WHAT OS TO SEND
-{
-    printCardDetails();
-    printEndOfCardDetails();
-}
+

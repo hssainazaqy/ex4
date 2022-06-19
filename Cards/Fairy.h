@@ -8,12 +8,9 @@
 class Fairy : public SpecialCard {
 
 public:
-    Fairy(std::string name);
+    Fairy();
     //-------------------------Methods---------------------------
-    //needs applyEncounter
-    //needs printInfo
     void applyEncounter(Player& player) const override;
-    void printInfo() const override;
     //-----------------------------------------------------------
 };
 

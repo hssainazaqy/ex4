@@ -8,12 +8,9 @@
 class Treasure : public SpecialCard {
 
 public:
-    Treasure(std::string name);
+    Treasure();
     //-------------------------Methods---------------------------
-    //needs applyEncounter
-    //needs printInfo
     void applyEncounter(Player& player) const override;
-    void printInfo() const override;
     //-----------------------------------------------------------
 };
 

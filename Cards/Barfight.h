@@ -8,12 +8,9 @@
 class Barfight : public SpecialCard {
 
 public:
-    Barfight(std::string name);
+    Barfight();
     //-------------------------Methods---------------------------
-    //needs applyEncounter
-    //needs printInfo
     void applyEncounter(Player& player) const override;
-    void printInfo() const override;
     //-----------------------------------------------------------
 };
 

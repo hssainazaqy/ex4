@@ -1,17 +1,13 @@
 #include "Treasure.h"
-
+#define TREASURE_COINS 10
 //-----------------------------------------------------------
-Treasure::Treasure(std::string name) : SpecialCard::SpecialCard(name)
+Treasure::Treasure() : SpecialCard::SpecialCard("Treasure")
 {
 }
 //-----------------------------------------------------------
 void Treasure::applyEncounter(Player& player) const
 {
-    //NEEDS IMPLEMENTATION
+    player.addCoins(TREASURE_COINS);
+    printTreasureMessage();
 }
 //-----------------------------------------------------------
-void Treasure::printInfo() const //NEEDS FIXING, NEED TO FIGURE OUT WHAT OS TO SEND
-{
-    printCardDetails();
-    printEndOfCardDetails();
-}

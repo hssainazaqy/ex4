@@ -14,4 +14,14 @@ BattleCard::BattleCard(std::string name,int force,int hp_loss,int loot ):
     }
 }
 //----------------------------------------------------------
-
+void BattleCard::printInfo(ostream& os) const
+{
+    bool isDragon = false;
+    if(m_name.compare("Dragon") == 0){
+        isDragon = true;
+    }
+    printCardDetails(os,m_name);
+    printMonsterDetails(os,m_force,m_hp_loss,m_loot,isDragon);
+    printEndOfCardDetails(os);
+}
+//----------------------------------------------------------

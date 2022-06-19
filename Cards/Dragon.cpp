@@ -11,18 +11,17 @@ Dragon::Dragon() : BattleCard::BattleCard("Dragon",DRAGON_FORCE,DRAGON_DAMAGE,DR
 void Dragon::applyEncounter(Player& player) const
 {
     if(player.getAttackStrength() < m_force){
-        printLossBattle(player.getName(),m_name);
+        printLossBattle(player.getName(),"Dragon");
         player.damage(player.getHp());
     }
     else{
-        printWinBattle(player.getName(),m_name);
+        printWinBattle(player.getName(),"Dragon");
         player.addCoins(m_loot);
         player.levelUp();
     }
 }
 //-----------------------------------------------------------
-void Dragon::printInfo() const
+void Dragon::printInfo(ostream& os) const
 {
-    printMonsterDetails(std::cout,DRAGON_FORCE,DRAGON_DAMAGE,DRAGON_LOOT, true);
-    printEndOfCardDetails(std::cout);
+    printMonsterDetails(os,m_force,m_hp_loss,m_loot, true);
 }

@@ -30,7 +30,7 @@ public:
      * @return
      *      void
     */
-    void printInfo() const;
+    friend ostream& operator<<(ostream& os, const Player& player);
 
     
     /*

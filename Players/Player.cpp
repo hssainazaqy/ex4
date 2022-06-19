@@ -6,28 +6,34 @@ Player::Player(const string name, const string job):
             m_name(name), m_job(job), m_level(STARTING_LEVEL), m_force(STARTING_FORCE),
             m_max_hp(DEFAULT_MAX_HP),m_hp(DEFAULT_MAX_HP),m_coins(STARTING_COINS){}
 //--------------------------------------------------------------------------
-void Player::printInfo() const{
-    printPlayerDetails(std::cout, m_name, m_job, m_level, m_force, m_hp, m_coins);
+ostream& operator<<(ostream& os, const Player& player)
+{
+    printPlayerDetails(os, player.m_name, player.m_job, player.m_level, player.m_force, player.m_hp, player.m_coins);
+    return os;
 }
 //--------------------------------------------------------------------------
-void Player::levelUp(){
+void Player::levelUp()
+{
     if(m_level < MAX_LEVEL){
         m_level++;
     }
 }
 //--------------------------------------------------------------------------
-int Player::getLevel() const{
+int Player::getLevel() const
+{
     return m_level;
 }
 //--------------------------------------------------------------------------
-void Player::buff(const int add_force){
+void Player::buff(const int add_force)
+{
     if (add_force < 0 ){
         return;
     }
     m_force += add_force;
 }
 //--------------------------------------------------------------------------
-void Player::heal(const int add_hp){
+void Player::heal(const int add_hp)
+{
     if(add_hp < 0){
         return;
     }
@@ -40,7 +46,8 @@ void Player::heal(const int add_hp){
     }
 }
 //--------------------------------------------------------------------------
-void Player::damage(const int remove_hp){
+void Player::damage(const int remove_hp)
+{
     if(remove_hp < 0){
         return;
     }
@@ -53,18 +60,21 @@ void Player::damage(const int remove_hp){
     }
 }
 //--------------------------------------------------------------------------
-bool Player::isKnockedOut() const{
+bool Player::isKnockedOut() const
+{
     return(!m_hp);
 }
 //--------------------------------------------------------------------------
-void Player::addCoins(const int coins_add){
+void Player::addCoins(const int coins_add)
+{
     if (coins_add < 0 ){
         return;
     }
     m_coins += coins_add;
 }
 //--------------------------------------------------------------------------
-bool Player::pay(int coins_remove){
+bool Player::pay(int coins_remove)
+{
     if(coins_remove > m_coins){
         return false;
     }
@@ -74,23 +84,28 @@ bool Player::pay(int coins_remove){
     }
 }
 //--------------------------------------------------------------------------
-int Player::getAttackStrength() const{
+int Player::getAttackStrength() const
+{
     return (m_level + m_force);
 }
 //--------------------------------------------------------------------------
-const string& Player::getName() const{
+const string& Player::getName() const
+{
    return m_name;
 }
 //--------------------------------------------------------------------------
-const string& Player::getJob() const {
+const string& Player::getJob() const
+{
     return m_job;
 }
 //--------------------------------------------------------------------------
-int Player::getForce() const{
+int Player::getForce() const
+{
     return m_force;
 }
 //--------------------------------------------------------------------------
-void Player::setForce(int force){
+void Player::setForce(int force)
+{
     if(force >=0){
         m_force = force;
     }
@@ -99,6 +114,7 @@ void Player::setForce(int force){
     }
 }
 //--------------------------------------------------------------------------
-int Player::getHp() const{
+int Player::getHp() const
+{
     return m_hp;
 }

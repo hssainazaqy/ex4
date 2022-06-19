@@ -7,6 +7,7 @@
 #include <string>
 #include "../Players/Player.h"
 #include "../utilities.h"
+#include <iostream>
 
 /*
  *  CardType:
@@ -28,7 +29,7 @@ public:
      * @return
      *      A new instance of Card.
     */
-    Card(std::string name, CardType type);
+    Card(const std::string name ,CardType type);
 
 
     /*
@@ -40,22 +41,16 @@ public:
     */
     virtual void applyEncounter(Player& player) const = 0;
 
+    virtual void printInfo(ostream& os) const;
 
-    /*
-     * Prints the card info:
-     *
-     * @return
-     *      void
-    */
-    virtual void printInfo() const = 0;
-
-
+    //----------------------Operators---------------------------
+    friend ostream& operator<<(ostream& os, const Card& card);
+    //----------------------------------------------------------
     /*
      * Here we are explicitly telling the compiler to use the default methods
     */
     Card(const Card&) = default;
-    ~Card() = default;
-
+    virtual ~Card() = default;
 
 protected:
     const std::string m_name;

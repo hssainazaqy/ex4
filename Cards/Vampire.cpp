@@ -22,8 +22,3 @@ void Vampire::applyEncounter(Player& player) const
     }
 }
 //-----------------------------------------------------------
-void Vampire::printInfo() const
-{
-    printMonsterDetails(std::cout,VAMPIRE_FORCE,VAMPIRE_DAMAGE,VAMPIRE_LOOT, false);
-    printEndOfCardDetails(std::cout);
-}

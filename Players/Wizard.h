@@ -11,8 +11,8 @@ class Wizard : public Player
 public:
     explicit Wizard(const string name, const string job):
         Player(name, job){}
-    void heal(const int add_hp);
 
+    void heal(const int add_hp) override;
 
 
     Wizard(const Wizard&) = default;

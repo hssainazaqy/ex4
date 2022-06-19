@@ -12,12 +12,14 @@ class BattleCard : public Card {
 public:
     BattleCard(std::string name,int force =DEFAULT_FORCE,int hp_loss= DEFAULT_HP_LOSS,int loot =DEFAULT_LOOT);
     //-------------------------Methods---------------------------
-
+    void printInfo(ostream& os) const override;
     //-----------------------------------------------------------
+    virtual ~BattleCard()= default;
 protected:
     int m_force;
     int m_hp_loss;
     int m_loot;
+
 };
 
 #endif

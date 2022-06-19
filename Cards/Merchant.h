@@ -8,12 +8,9 @@
 class Merchant : public SpecialCard {
 
 public:
-    Merchant(std::string name);
+    Merchant();
     //-------------------------Methods---------------------------
-    //needs applyEncounter
-    //needs printInfo
     void applyEncounter(Player& player) const override;
-    void printInfo() const override;
     //-----------------------------------------------------------
 };
 

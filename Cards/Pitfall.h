@@ -8,12 +8,9 @@
 class Pitfall : public SpecialCard {
 
 public:
-    Pitfall(std::string name);
+    Pitfall();
     //-------------------------Methods---------------------------
-    //needs applyEncounter
-    //needs printInfo
     void applyEncounter(Player& player) const override;
-    void printInfo() const override;
     //-----------------------------------------------------------
 };
 
