@@ -14,7 +14,7 @@ public:
     //-------------------------Methods---------------------------
     void printInfo(ostream& os) const override;
     //-----------------------------------------------------------
-    virtual ~BattleCard()= default;
+    virtual ~BattleCard() = default;
 protected:
     int m_force;
     int m_hp_loss;

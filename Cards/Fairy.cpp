@@ -1,7 +1,7 @@
 #include "Fairy.h"
 
 //-----------------------------------------------------------
-Fairy::Fairy() : SpecialCard::SpecialCard()
+Fairy::Fairy() : SpecialCard::SpecialCard("Fairy")
 {
 }
 //-----------------------------------------------------------

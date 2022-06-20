@@ -9,6 +9,7 @@ class Barfight : public SpecialCard {
 
 public:
     Barfight();
+    ~Barfight() override = default ;
     //-------------------------Methods---------------------------
     void applyEncounter(Player& player) const override;
     //-----------------------------------------------------------

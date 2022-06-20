@@ -7,12 +7,15 @@
 
 class Dragon : public BattleCard {
 
+public:
+    Dragon();
+    ~Dragon() override =default;
     //-------------------------Methods---------------------------
     void applyEncounter(Player& player) const override;
     void printInfo(ostream& os) const override;
     //-----------------------------------------------------------
-public:
-    Dragon();
+
+
 };
 
 #endif

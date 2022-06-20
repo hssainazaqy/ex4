@@ -9,6 +9,7 @@ class Treasure : public SpecialCard {
 
 public:
     Treasure();
+    ~Treasure() override = default;
     //-------------------------Methods---------------------------
     void applyEncounter(Player& player) const override;
     //-----------------------------------------------------------

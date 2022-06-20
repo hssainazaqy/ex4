@@ -9,6 +9,7 @@ class Pitfall : public SpecialCard {
 
 public:
     Pitfall();
+    ~Pitfall() override = default;
     //-------------------------Methods---------------------------
     void applyEncounter(Player& player) const override;
     //-----------------------------------------------------------

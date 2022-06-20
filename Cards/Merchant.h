@@ -9,9 +9,11 @@ class Merchant : public SpecialCard {
 
 public:
     Merchant();
+    ~Merchant() override = default;
     //-------------------------Methods---------------------------
     void applyEncounter(Player& player) const override;
     //-----------------------------------------------------------
+
 };
 
 

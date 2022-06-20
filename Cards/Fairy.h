@@ -9,6 +9,7 @@ class Fairy : public SpecialCard {
 
 public:
     Fairy();
+    ~Fairy() override = default;
     //-------------------------Methods---------------------------
     void applyEncounter(Player& player) const override;
     //-----------------------------------------------------------

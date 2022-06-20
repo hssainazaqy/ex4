@@ -8,6 +8,7 @@
 class Goblin : public BattleCard {
 public:
     Goblin();
+    ~Goblin() override = default;
     //-------------------------Methods---------------------------
     void applyEncounter(Player& player) const override;
     //-----------------------------------------------------------

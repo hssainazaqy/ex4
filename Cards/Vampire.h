@@ -8,6 +8,7 @@
 class Vampire : public BattleCard {
 public:
     Vampire();
+    ~Vampire() override =default;
     //-------------------------Methods---------------------------
     void applyEncounter(Player& player) const override;
     //-----------------------------------------------------------

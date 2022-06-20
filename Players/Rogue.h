@@ -4,15 +4,15 @@
 
 #include "Player.h"
 
-class Rouge : public Player
+class Rogue : public Player
 {
 public:
-    explicit Rouge(const string name, const string job):
+    explicit Rogue(const string name, const string job):
         Player(name, job){}
-    void addCoins(const int coins_add) const;
-    Rouge(const Rouge&) = default;
-    ~Rouge() = default;
-    Rouge& operator=(const Rouge& other) = default;
+    void addCoins(const int coins_add) override;
+
+    Rogue(const Rogue&) = default;
+    ~Rogue() override = default;
 };
 
 #endif

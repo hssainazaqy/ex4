@@ -16,8 +16,8 @@ public:
 
 
     Wizard(const Wizard&) = default;
-    ~Wizard() = default;
-    Wizard& operator=(const Wizard& other) = default;
+    ~Wizard() override = default;
+
 };
 
 #endif

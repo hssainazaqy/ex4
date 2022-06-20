@@ -11,7 +11,7 @@ public:
                 Player(name, job){}
     
     Fighter(const Fighter&) = default;
-    ~Fighter() = default;
+    ~Fighter() override = default;
     
     int getAttackStrength() const override;
 

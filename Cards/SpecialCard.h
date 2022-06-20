@@ -9,9 +9,9 @@ class SpecialCard : public Card {
 public:
     SpecialCard(std::string name);
     //-------------------------Methods---------------------------
-    virtual void printInfo(ostream& os) const override;
+    void printInfo(ostream& os) const override;
     //-----------------------------------------------------------
-    virtual ~SpecialCard()= default;
+    virtual ~SpecialCard() = default;
 };
 
 #endif

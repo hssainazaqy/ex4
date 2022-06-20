@@ -141,7 +141,7 @@ public:
      * Here we are explicitly telling the compiler to use the default methods
     */
     Player(const Player&) = default;
-    ~Player() = default;
+    virtual ~Player() = default;
     Player& operator=(const Player& other) = delete;
 
 
