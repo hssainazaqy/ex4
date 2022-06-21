@@ -26,11 +26,11 @@ void Merchant::applyEncounter(Player& player) const
             continue;
         }
 
-        if(input.compare("0")){
+        if(input.compare("0") == 0){
             sale_done = true;
         }
 
-        if(input.compare("1")){
+        if(input.compare("1") == 0){
             if(player.pay(HEAL_PRICE)){
                 player.heal(HEAL);
                 paid_coins = HEAL_PRICE;
@@ -41,7 +41,7 @@ void Merchant::applyEncounter(Player& player) const
             sale_done = true;
         }
 
-        if(input.compare("2")) {
+        if(input.compare("2") == 0) {
             if (player.pay(BUFF_PRICE)) {
                 player.heal(BUFF);
                 paid_coins = BUFF_PRICE;
