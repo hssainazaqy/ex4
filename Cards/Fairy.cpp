@@ -1,5 +1,6 @@
 #include "Fairy.h"
 
+#define FAIRY_HEAL 10
 //-----------------------------------------------------------
 Fairy::Fairy() : SpecialCard::SpecialCard("Fairy")
 {
@@ -7,6 +8,8 @@ Fairy::Fairy() : SpecialCard::SpecialCard("Fairy")
 //-----------------------------------------------------------
 void Fairy::applyEncounter(Player& player) const
 {
-    //NEEDS IMPLEMENTATION
+    if(player.getJob().compare("Wizard") == 0){
+        player.heal(FAIRY_HEAL);
+    }
 }
 //-----------------------------------------------------------

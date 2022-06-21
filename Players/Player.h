@@ -128,6 +128,7 @@ public:
      *      Player job
      *      Player force
      *      Player Hp
+     *      Player coins
      * Setters:
      *      Player force
      */
@@ -135,6 +136,7 @@ public:
     const string& getJob() const;
 
     int getHp() const;
+    int getCoins() const;
     int getForce() const;
     void setForce(int force);
     /*

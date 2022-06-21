@@ -1,5 +1,4 @@
 #include "Player.h"
-#include <iostream>
 #include "../utilities.h"
 
 Player::Player(const string name, const string job):
@@ -118,3 +117,9 @@ int Player::getHp() const
 {
     return m_hp;
 }
+//--------------------------------------------------------------------------
+int Player::getCoins() const
+{
+    return m_coins;
+}
+//--------------------------------------------------------------------------
