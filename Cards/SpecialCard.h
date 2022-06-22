@@ -7,7 +7,7 @@
 class SpecialCard : public Card {
 
 public:
-    SpecialCard(std::string name);
+    SpecialCard(const std::string name);
     //-------------------------Methods---------------------------
     void printInfo(ostream& os) const override;
     //-----------------------------------------------------------

@@ -1,7 +1,7 @@
 #include "SpecialCard.h"
 
 //-----------------------------------------------------------
-SpecialCard::SpecialCard(std::string name) : Card(name,CardType::Special)
+SpecialCard::SpecialCard(const std::string name) : Card(name,CardType::Special)
 {
 }
 //-----------------------------------------------------------

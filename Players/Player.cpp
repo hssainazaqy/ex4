@@ -1,9 +1,12 @@
 #include "Player.h"
 #include "../utilities.h"
 
+
+//--------------------------------------------------------------------------
 Player::Player(const string name, const string job):
             m_name(name), m_job(job), m_level(STARTING_LEVEL), m_force(STARTING_FORCE),
-            m_max_hp(DEFAULT_MAX_HP),m_hp(DEFAULT_MAX_HP),m_coins(STARTING_COINS){}
+            m_max_hp(DEFAULT_MAX_HP),m_hp(DEFAULT_MAX_HP),m_coins(STARTING_COINS)
+            {}
 //--------------------------------------------------------------------------
 ostream& operator<<(ostream& os, const Player& player)
 {

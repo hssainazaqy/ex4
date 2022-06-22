@@ -2,7 +2,7 @@
 
 #define FAIRY_HEAL 10
 //-----------------------------------------------------------
-Fairy::Fairy() : SpecialCard::SpecialCard("Fairy")
+Fairy::Fairy(const std::string name) : SpecialCard::SpecialCard("Fairy")
 {
 }
 //-----------------------------------------------------------
