@@ -50,6 +50,9 @@ public:
     */
     int getNumberOfRounds() const;
 
+    Mtmchkin(const Mtmchkin&) = delete;
+    Mtmchkin& operator=(const Mtmchkin& other) = delete;
+
 private:
     int m_rounds_number;
     deque<std::shared_ptr<Player>> m_playing;

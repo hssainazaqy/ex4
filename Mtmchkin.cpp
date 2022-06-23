@@ -1,40 +1,5 @@
 #include <string>
 
-#define A 'A'
-#define a 'a'
-#define Z 'Z'
-#define z 'z'
-//----------------------------------------------------------
-bool CheckValidJob(std::string name){
-    bool valid = false;
-    if(name.compare("Fighter") == 0){
-        valid = true;
-    }
-    if(name.compare("Rogue") == 0){
-        valid = true;
-    }
-    if(name.compare("Wizard") == 0){
-        valid = true;
-    }
-    return valid;
-}
-//----------------------------------------------------------
-bool CheckValidName(std::string name){
-    int name_len = name.length();
-    int valid = true;
-
-    if(name_len == 0){
-        valid = false;
-    }
-    for (int i = 0; i < name_len; ++i) {
-        if((name[i]<= A) ||(name[i] >= Z)&&(name[i]<= a)||(name[i] >= Z)){
-            valid = false;
-            break;
-        }
-    }
-    return valid;
-}
-//----------------------------------------------------------
 #include "Mtmchkin.h"
 #include "utilities.h"
 #include <ostream>
@@ -65,8 +30,43 @@ bool CheckValidName(std::string name){
 #include "Exception.h"
 
 
-
 #define EMPTY_SPACE ' '
+#define MAX_NAME_LENGTH 15
+#define A 'A'
+#define a 'a'
+#define Z 'Z'
+#define z 'z'
+//----------------------------------------------------------
+bool CheckValidJob(std::string name){
+    bool valid = false;
+    if(name.compare("Fighter") == 0){
+        valid = true;
+    }
+    if(name.compare("Rogue") == 0){
+        valid = true;
+    }
+    if(name.compare("Wizard") == 0){
+        valid = true;
+    }
+    return valid;
+}
+//----------------------------------------------------------
+bool CheckValidName(std::string name){
+    int name_len = name.length();
+    int valid = true;
+
+    if(name_len == 0 || name_len > MAX_NAME_LENGTH){
+        valid = false;
+    }
+    for (int i = 0; i < name_len; ++i) {
+        if((name[i]<= A) ||(name[i] >= Z)&&(name[i]<= a)||(name[i] >= Z)){
+            valid = false;
+            break;
+        }
+    }
+    return valid;
+}
+//----------------------------------------------------------
 
 Mtmchkin::Mtmchkin(const std::string &fileName): m_rounds_number(0),m_playing(new deque<std::shared_ptr<Player>>),
                                                  m_winners(new deque<std::shared_ptr<Player>>),
@@ -218,28 +218,49 @@ void Mtmchkin::playRound()
     m_rounds_number++;
     printRoundStartMessage(getNumberOfRounds());
     //for(player in game)
-    //takes the current player name
-    //printTurnStartMessage(curr_player.name);
-    //takes the next card from the deck
-    //play that card
-    //return the card to the end of the deck
+        //takes the current player name
+        //printTurnStartMessage(curr_player.name);
+        //takes the next card from the deck
+        //play that card
+        //return the card to the end of the deck
 
-
-    if(isGameOver())
-    {
-        printGameEndMessage();
-    }
 }
 
 
 void Mtmchkin::printLeaderBoard() const
 {
+    int num_of_winners = m_winners.size();
+    int num_of_playing = m_playing.size();
+    int num_of_losers = m_losers.size();
 
+    printLeaderBoardStartMessage();
+
+    for (int i = 1; i <= num_of_winners; ++i) {
+        printPlayerLeaderBoard(i,m_winners.front());
+        m_winners.push_back(m_winners.pop_front());
+    }
+
+    for (int i = 1; i <= num_of_playing; ++i) {
+        printPlayerLeaderBoard(i+num_of_winners,m_playing.front());
+        m_playing.push_back(m_playing.pop_front());
+    }
+
+    for (int i = 1; i <= num_of_losers; ++i) {
+        printPlayerLeaderBoard(i+num_of_winners+num_of_playing,m_playing.back());
+        m_playing.push_front(m_playing.pop_back());
+    }
 }
 
 bool Mtmchkin::isGameOver() const
 {
-
+    bool over = false;
+    if(m_playing.size() == 0){
+        over = true;
+    }
+    if(over){
+        printGameEndMessage();
+    }
+    return  over;
 }
 
 int Mtmchkin::getNumberOfRounds() const
