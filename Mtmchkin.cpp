@@ -77,6 +77,7 @@ Mtmchkin::Mtmchkin(const std::string &fileName): m_rounds_number(0),m_playing(ne
     std::ifstream card_file;
     std:string curr_line;
     card_file.open(fileName);
+
     //card deck initialization
     if(card_file.is_open())
     {
@@ -87,54 +88,45 @@ Mtmchkin::Mtmchkin(const std::string &fileName): m_rounds_number(0),m_playing(ne
                 std::shared_ptr<Card> card(new Fairy());
                 m_cards.push_back(card);
             }
-
-            if(curr_line.compare("Pitfall") == 0)
+            else if(curr_line.compare("Pitfall") == 0)
             {
                 std::shared_ptr<Card> card(new Pitfall());
                 m_cards.push_back(card);
             }
-
             else if(curr_line.compare("Goblin") == 0)
             {
                 std::shared_ptr<Card> card(new Goblin());
                 m_cards.push_back(card);
             }
-
             else if(curr_line.compare("Vampire") == 0)
             {
                 std::shared_ptr<Card> card(new Vampire());
                 m_cards.push_back(card);
             }
-
             else if(curr_line.compare("Dragon") == 0)
             {
                 std::shared_ptr<Card> card(new Dragon());
                 m_cards.push_back(card);
             }
-
             else if(curr_line.compare("Barfight") == 0)
             {
                 std::shared_ptr<Card> card(new Barfight());
                 m_cards.push_back(card);
             }
-
             else if(curr_line.compare("Merchant") == 0)
             {
                 std::shared_ptr<Card> card(new Merchant());
                 m_cards.push_back(card);
             }
-
             else if(curr_line.compare("Treasure") == 0)
             {
                 std::shared_ptr<Card> card(new Treasure());
                 m_cards.push_back(card);
             }
-
             else
             {
                 throw DeckFileFormatError(card_number);
             }
-
             card_number++;
         }
         if(card_number < 5)
@@ -167,11 +159,12 @@ Mtmchkin::Mtmchkin(const std::string &fileName): m_rounds_number(0),m_playing(ne
     team_size = tmp_int;
 
 
-    printInsertPlayerMessage();
+
     std::string player_name, player_job;
     player_number = 0;
     while (player_number < team_size)
     {
+        printInsertPlayerMessage();
         std::cin >> player_name >> player_job;
         if(CheckValidName(player_name) && CheckValidJob(player_job))
         {
@@ -180,7 +173,6 @@ Mtmchkin::Mtmchkin(const std::string &fileName): m_rounds_number(0),m_playing(ne
                 std::shared_ptr<Player> player(new Fighter(player_name, player_job));
                 m_playing.push_back(player);
             }
-
             else if(player_name.compare("Rogue") == 0)
             {
                 std::shared_ptr<Player> player(new Rogue(player_name, player_job));
@@ -205,8 +197,6 @@ Mtmchkin::Mtmchkin(const std::string &fileName): m_rounds_number(0),m_playing(ne
         }
 
     }
-
-
 }
 
 
@@ -237,17 +227,20 @@ void Mtmchkin::printLeaderBoard() const
 
     for (int i = 1; i <= num_of_winners; ++i) {
         printPlayerLeaderBoard(i,m_winners.front());
-        m_winners.push_back(m_winners.pop_front());
+        m_winners.push_back(m_winners.front());
+        m_winners.pop_front();
     }
 
     for (int i = 1; i <= num_of_playing; ++i) {
         printPlayerLeaderBoard(i+num_of_winners,m_playing.front());
-        m_playing.push_back(m_playing.pop_front());
+        m_playing.push_back(m_playing.front());
+        m_playing.pop_front();
     }
 
     for (int i = 1; i <= num_of_losers; ++i) {
         printPlayerLeaderBoard(i+num_of_winners+num_of_playing,m_playing.back());
-        m_playing.push_front(m_playing.pop_back());
+        m_playing.push_front(m_playing.back());
+        m_winners.pop_back();
     }
 }
 
