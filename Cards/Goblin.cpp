@@ -4,7 +4,7 @@
 #define GOBLIN_DAMAGE 10
 #define GOBLIN_LOOT 2
 
-Goblin::Goblin() : BattleCard::BattleCard(GOBLIN_FORCE,GOBLIN_DAMAGE,GOBLIN_LOOT)
+Goblin::Goblin() : BattleCard::BattleCard("Goblin",GOBLIN_FORCE,GOBLIN_DAMAGE,GOBLIN_LOOT)
 {
 }
 //-----------------------------------------------------------

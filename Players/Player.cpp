@@ -3,14 +3,14 @@
 
 
 //--------------------------------------------------------------------------
-Player::Player(const string name, const string job):
+Player::Player(const std::string name, const std::string job):
             m_name(name), m_job(job), m_level(STARTING_LEVEL), m_force(STARTING_FORCE),
             m_max_hp(DEFAULT_MAX_HP),m_hp(DEFAULT_MAX_HP),m_coins(STARTING_COINS)
             {}
 //--------------------------------------------------------------------------
 ostream& operator<<(ostream& os, const Player& player)
 {
-    printPlayerDetails(os, player.m_name, player.m_job, player.m_level, player.m_force, player.m_hp, player.m_coins);
+    player.printPlayerInfo(os);
     return os;
 }
 //--------------------------------------------------------------------------
@@ -91,12 +91,12 @@ int Player::getAttackStrength() const
     return (m_level + m_force);
 }
 //--------------------------------------------------------------------------
-const string& Player::getName() const
+const std::string& Player::getName() const
 {
    return m_name;
 }
 //--------------------------------------------------------------------------
-const string& Player::getJob() const
+const std::string& Player::getJob() const
 {
     return m_job;
 }
@@ -126,3 +126,6 @@ int Player::getCoins() const
     return m_coins;
 }
 //--------------------------------------------------------------------------
+void Player::printPlayerInfo(ostream &os) const {
+    printPlayerDetails(os, m_name, m_job, m_level,m_force, m_hp, m_coins);
+}

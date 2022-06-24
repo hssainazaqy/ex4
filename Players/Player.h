@@ -30,7 +30,7 @@ public:
      * @return
      *      void
     */
-    friend ostream& operator<<(ostream& os, const Player& player);
+    //friend std::ostream& operator<<(std::ostream& os, const Player& player);
 
     
     /*
@@ -50,6 +50,8 @@ public:
     */
     int getLevel() const;
 
+
+    virtual void printPlayerInfo(ostream& os) const;
 
     
     /*
@@ -146,6 +148,7 @@ public:
     virtual ~Player() = default;
     Player& operator=(const Player& other) = delete;
 
+    friend std::ostream& operator<<(std::ostream& os, const Player& player);
 
 protected:
     const string m_name;
@@ -156,6 +159,5 @@ protected:
     int m_hp;
     int m_coins;
 };
-
 
 #endif //EX4_Player_H

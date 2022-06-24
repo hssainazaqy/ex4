@@ -3,6 +3,8 @@
 
 #include <deque>
 #include <memory>
+#include "Players/Player.h"
+#include "Cards/Card.h"
 
 class Mtmchkin{
 
