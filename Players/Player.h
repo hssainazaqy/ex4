@@ -3,6 +3,7 @@
 
 
 #include <string>
+#include "iostream"
 
 using namespace std;
 
@@ -50,8 +51,6 @@ public:
     */
     int getLevel() const;
 
-
-    virtual void printPlayerInfo(ostream& os) const;
 
     
     /*
@@ -148,7 +147,8 @@ public:
     virtual ~Player() = default;
     Player& operator=(const Player& other) = delete;
 
-    friend std::ostream& operator<<(std::ostream& os, const Player& player);
+    friend ostream& operator<<(ostream& os, const Player& player);
+    virtual void printPlayerInfo(ostream& os) const = 0;
 
 protected:
     const string m_name;

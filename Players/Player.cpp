@@ -126,6 +126,6 @@ int Player::getCoins() const
     return m_coins;
 }
 //--------------------------------------------------------------------------
-void Player::printPlayerInfo(ostream &os) const {
-    printPlayerDetails(os, m_name, m_job, m_level,m_force, m_hp, m_coins);
-}
+//void Player::printPlayerInfo(ostream &os) const {
+//    printPlayerDetails(os, m_name, m_job, m_level,m_force, m_hp, m_coins);
+//}

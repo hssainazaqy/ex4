@@ -21,7 +21,3 @@ void Dragon::applyEncounter(Player& player) const
     }
 }
 //-----------------------------------------------------------
-void Dragon::printInfo(ostream& os) const
-{
-    printMonsterDetails(os,m_force,m_hp_loss,m_loot, true);
-}

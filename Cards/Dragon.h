@@ -12,7 +12,6 @@ public:
     ~Dragon() override =default;
     //-------------------------Methods---------------------------
     void applyEncounter(Player& player) const override;
-    void printInfo(ostream& os) const override;
     //-----------------------------------------------------------
 
 

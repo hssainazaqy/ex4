@@ -250,7 +250,6 @@ void Mtmchkin::printLeaderBoard() const
 
     for (int i = 0; i < num_of_playing; ++i) {
         printPlayerLeaderBoard(rank,*m_playing[i]);
-        rank ++;
     }
 
     for (int i = 0; i < num_of_losers; i++) {

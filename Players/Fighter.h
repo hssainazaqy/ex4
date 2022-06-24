@@ -3,7 +3,7 @@
 #define EX4_FIGHTER_H
 
 #include "Player.h"
-
+#include "utilities.h"
 class Fighter : public Player
 {
 public:
@@ -13,6 +13,7 @@ public:
     Fighter(const Fighter&) = default;
     ~Fighter() override = default;
 
+    void printPlayerInfo(ostream &os) const override;
     int getAttackStrength() const override;
 
 
